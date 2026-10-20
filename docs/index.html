@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shortlist – Recruiter CRM for LinkedIn</title>
+  <meta name="description" content="Save LinkedIn profiles in one click, track candidates through your pipeline, and never miss a follow-up. A Chrome extension for recruiters and freelancers. Your data stays in your browser.">
+  <link rel="canonical" href="https://mankarsandesh.github.io/shortlist/">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/icon-128.png">
+  <meta name="theme-color" content="#F7F6F2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#151513" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Shortlist">
+  <meta property="og:title" content="Shortlist – Recruiter CRM for LinkedIn">
+  <meta property="og:description" content="Save LinkedIn profiles in one click, track candidates through your pipeline, and never miss a follow-up.">
+  <meta property="og:url" content="https://mankarsandesh.github.io/shortlist/">
+  <meta property="og:image" content="https://mankarsandesh.github.io/shortlist/assets/social-card.png">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="560">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Shortlist home">
+        <img src="assets/icon-128.png" alt="" width="32" height="32">Shortlist
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a class="nav-wide" href="#tour">How it works</a>
+        <a class="nav-wide" href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="privacy">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <h1>The recruiter CRM that lives beside LinkedIn.</h1>
+        <p class="lead">Save a profile in one click, move candidates from Sourced to Placed, and get a reminder when it’s time to follow up. Everything stays in your browser.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#demo" data-play-demo>
+            <span class="btn-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.9v8.2c0 .55.6.88 1.05.58l6.3-4.1a.7.7 0 0 0 0-1.16l-6.3-4.1C3.6 1.02 3 1.35 3 1.9Z"/></svg></span>
+            Watch the demo
+          </a>
+          <!-- When the Chrome Web Store listing is live, replace this note with:
+               <a class="btn btn-primary" href="YOUR_CHROME_WEB_STORE_URL">Add to Chrome</a> -->
+          <p class="store-note">Coming soon to the Chrome Web Store. Free to start, no sign-up needed.</p>
+        </div>
+
+        <div class="demo" id="demo">
+          <div class="player" data-video="hkJwDPavl0E">
+            <a class="player-start" href="https://www.youtube.com/watch?v=hkJwDPavl0E" aria-label="Play the Shortlist demo video">
+              <img src="assets/video-poster.jpg" alt="" width="1280" height="720" fetchpriority="high">
+              <span class="play-pill">
+                <span class="btn-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.9v8.2c0 .55.6.88 1.05.58l6.3-4.1a.7.7 0 0 0 0-1.16l-6.3-4.1C3.6 1.02 3 1.35 3 1.9Z"/></svg></span>
+                Play demo
+              </span>
+            </a>
+          </div>
+          <p class="demo-note">
+            <span>The video plays from YouTube. Nothing loads from YouTube until you press play.</span>
+            <a href="https://www.youtube.com/watch?v=hkJwDPavl0E">Watch on YouTube</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tour" aria-labelledby="tour-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="tour-title">From LinkedIn profile to placed candidate</h2>
+          <p>Shortlist opens in Chrome’s side panel and stays there while you browse, so your pipeline is always next to the profile you’re reading.</p>
+        </div>
+
+        <div class="tour-tabs" role="tablist" aria-label="Product tour" hidden>
+          <button class="chip" type="button" role="tab" id="tab-save" aria-controls="panel-save"><span class="step">1</span>Save</button>
+          <button class="chip" type="button" role="tab" id="tab-track" aria-controls="panel-track"><span class="step">2</span>Track</button>
+          <button class="chip" type="button" role="tab" id="tab-follow" aria-controls="panel-follow"><span class="step">3</span>Follow up</button>
+          <button class="chip" type="button" role="tab" id="tab-reach" aria-controls="panel-reach"><span class="step">4</span>Reach out</button>
+          <button class="chip" type="button" role="tab" id="tab-templates" aria-controls="panel-templates"><span class="step">5</span>Templates</button>
+        </div>
+
+        <div class="tour-panel" id="panel-save">
+          <figure class="shot">
+            <img src="assets/screenshots/1-save.png" width="1280" height="800" loading="lazy"
+                 alt="Save any LinkedIn profile in one click. A LinkedIn profile with the Shortlist side panel open: the profile is saved and a follow-up is set for two days later.">
+          </figure>
+        </div>
+        <div class="tour-panel" id="panel-track">
+          <figure class="shot">
+            <img src="assets/screenshots/2-track.png" width="1280" height="800" loading="lazy"
+                 alt="See every candidate at a glance. The Shortlist pipeline with stage filters from Sourced to Placed, and each candidate's tags and follow-up date.">
+          </figure>
+        </div>
+        <div class="tour-panel" id="panel-follow">
+          <figure class="shot">
+            <img src="assets/screenshots/3-follow-up.png" width="1280" height="800" loading="lazy"
+                 alt="Never let a good candidate go cold. The Follow-ups tab groups candidates into Overdue, Today and Next 7 days, with a desktop reminder that three follow-ups are due today.">
+          </figure>
+        </div>
+        <div class="tour-panel" id="panel-reach">
+          <figure class="shot">
+            <img src="assets/screenshots/4-reach-out.png" width="1280" height="800" loading="lazy"
+                 alt="Personal messages in seconds. A contact's outreach message filled in from a template, with the Copy and mark contacted button.">
+          </figure>
+        </div>
+        <div class="tour-panel" id="panel-templates">
+          <figure class="shot">
+            <img src="assets/screenshots/5-templates.png" width="1280" height="800" loading="lazy"
+                 alt="Write once, personalise automatically. The Templates tab with three message templates using firstName, company and myName variables.">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="features-title">What Shortlist does</h2>
+          <p>The parts of a recruiting CRM you use every day, in a side panel next to LinkedIn. There’s nothing to set up: open a profile and click Save.</p>
+        </div>
+
+        <ul class="features">
+          <li class="feature">
+            <div class="specimen" aria-hidden="true">
+              <span class="mock-save"><span class="mock-dot">+</span>Save to Shortlist</span>
+              <span class="mock-save is-saved"><span class="mock-dot">✓</span><span>In Shortlist<small>Saved, follow-up in 2 days</small></span></span>
+            </div>
+            <h3>Save in one click</h3>
+            <p>A Save to Shortlist button appears on LinkedIn profiles. Name, headline, company and location are filled in for you, and a follow-up is set for two days later.</p>
+          </li>
+          <li class="feature">
+            <div class="specimen" aria-hidden="true">
+              <span class="pill">Sourced</span>
+              <span class="pill s-contacted">Contacted</span>
+              <span class="pill s-replied">Replied</span>
+              <span class="pill s-interview">Interview</span>
+              <span class="pill s-placed">Placed</span>
+            </div>
+            <h3>Track every stage</h3>
+            <p>Move people from Sourced to Contacted, Replied, Interview and Placed, or archive them. Filter your list by stage with one tap.</p>
+          </li>
+          <li class="feature">
+            <div class="specimen" aria-hidden="true">
+              <div class="mock-card">
+                <b>Tom Ellis</b>
+                <span class="muted">Engineering Manager at Deliveroo</span>
+                <span class="meta"><span class="pill s-contacted">Contacted</span><span class="due-over">Overdue 1d</span><span class="tag">#manager</span></span>
+              </div>
+            </div>
+            <h3>Follow up on time</h3>
+            <p>See who’s overdue, due today and coming up this week. A badge on the toolbar shows the count, and one reminder arrives each day.</p>
+          </li>
+          <li class="feature">
+            <div class="specimen" aria-hidden="true">
+              <div class="mock-text">Hi <code>{firstName}</code>, your work at <code>{company}</code> stood out. Open to a quick chat this week?</div>
+            </div>
+            <h3>Message from templates</h3>
+            <p>Write a message once. Shortlist fills in each person’s name and company, and Copy &amp; mark contacted moves them along your pipeline. Free includes 3 templates.</p>
+          </li>
+          <li class="feature">
+            <div class="specimen" aria-hidden="true">
+              <div class="mock-search">Search name, company, tag…</div>
+              <span class="tag">#react</span><span class="tag">#backend</span><span class="tag">#london</span>
+            </div>
+            <h3>Notes, tags and search</h3>
+            <p>Keep call notes, salary expectations and notice periods with each contact. Search across names, companies, tags and notes.</p>
+          </li>
+          <li class="feature">
+            <div class="specimen" aria-hidden="true">
+              <span class="mock-file"><span class="file-icon">CSV</span><span>shortlist-2026-10-20.csv<small>48 contacts</small></span></span>
+            </div>
+            <h3>Export to CSV <span class="pro-tag">Pro</span></h3>
+            <p>Download your whole pipeline as a spreadsheet for your ATS, a client update or a backup.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section band" id="private" aria-labelledby="private-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="private-title">Your candidates stay in your browser.</h2>
+          <p>Shortlist has no servers and no sign-up. What you save is stored by Chrome on your own computer, and nobody else can see it, including us.</p>
+          <a class="band-link" href="privacy">Read the privacy policy</a>
+        </div>
+        <ul class="promises">
+          <li>
+            <span class="tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg></span>
+            <span class="promise-text"><b>Stored on your computer</b>Contacts, notes and templates are kept in Chrome’s own storage and never uploaded.</span>
+          </li>
+          <li>
+            <span class="tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg></span>
+            <span class="promise-text"><b>Reads only what you save</b>Shortlist reads the profile you’re viewing, and only when you click Save.</span>
+          </li>
+          <li>
+            <span class="tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg></span>
+            <span class="promise-text"><b>No automation</b>It never sends messages, visits profiles or saves people in bulk for you.</span>
+          </li>
+          <li>
+            <span class="tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg></span>
+            <span class="promise-text"><b>No tracking</b>No analytics and no ads, and your data is never sold.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="pricing-title">Start free. Go Pro when your shortlist grows.</h2>
+          <p>The free plan has everything you need to try Shortlist properly. Pro removes the limits and adds CSV export.</p>
+        </div>
+
+        <div class="table-frame">
+          <table class="plans">
+            <caption class="sr-only">Free and Pro plans compared</caption>
+            <thead>
+              <tr>
+                <th scope="col"><span class="sr-only">Feature</span></th>
+                <th scope="col" class="plan">Free<small>To get started</small></th>
+                <th scope="col" class="plan plan-pro">Pro<small>For busy pipelines</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Save to Shortlist button on LinkedIn profiles</th>
+                <td class="plan"><span class="yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg><span class="sr-only">Included</span></span></td>
+                <td class="plan plan-pro"><span class="yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg><span class="sr-only">Included</span></span></td>
+              </tr>
+              <tr>
+                <th scope="row">Pipeline stages from Sourced to Placed</th>
+                <td class="plan"><span class="yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg><span class="sr-only">Included</span></span></td>
+                <td class="plan plan-pro"><span class="yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg><span class="sr-only">Included</span></span></td>
+              </tr>
+              <tr>
+                <th scope="row">Follow-up dates, toolbar badge and daily reminder</th>
+                <td class="plan"><span class="yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg><span class="sr-only">Included</span></span></td>
+                <td class="plan plan-pro"><span class="yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg><span class="sr-only">Included</span></span></td>
+              </tr>
+              <tr>
+                <th scope="row">Notes, tags and search</th>
+                <td class="plan"><span class="yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg><span class="sr-only">Included</span></span></td>
+                <td class="plan plan-pro"><span class="yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg><span class="sr-only">Included</span></span></td>
+              </tr>
+              <tr>
+                <th scope="row">Message templates with <code>{firstName}</code>, <code>{company}</code> and more</th>
+                <td class="plan">3</td>
+                <td class="plan plan-pro">Unlimited</td>
+              </tr>
+              <tr>
+                <th scope="row">Saved contacts</th>
+                <td class="plan">25</td>
+                <td class="plan plan-pro">Unlimited</td>
+              </tr>
+              <tr>
+                <th scope="row">CSV export</th>
+                <td class="plan"><span class="no" aria-hidden="true">–</span><span class="sr-only">Not included</span></td>
+                <td class="plan plan-pro"><span class="yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg><span class="sr-only">Included</span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="plans-note">Upgrade from Settings inside the extension. ExtensionPay and Stripe handle payment, so your card details never reach us. Already paid on another computer? Click Restore purchase in Settings.</p>
+      </div>
+    </section>
+
+    <section class="section" id="start" aria-labelledby="start-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="start-title">Get started in a minute</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3>Add Shortlist to Chrome</h3>
+            <p>Install it from the Chrome Web Store (coming soon). It works in Chrome 116 or later on desktop.</p>
+          </li>
+          <li>
+            <h3>Save a profile</h3>
+            <p>Open any LinkedIn profile and click Save to Shortlist in the bottom-right corner.</p>
+          </li>
+          <li>
+            <h3>Open your pipeline</h3>
+            <p>Click the Shortlist icon in your toolbar. Your contacts open in the side panel.</p>
+          </li>
+          <li>
+            <h3>Reach out</h3>
+            <p>Pick a template, click Copy &amp; mark contacted, and paste the message into LinkedIn.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq-layout">
+        <div class="section-head">
+          <h2 id="faq-title">Common questions</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Where is my data stored?</summary>
+            <p>In your browser, using Chrome’s storage on your computer. Shortlist has no servers of its own, so your contacts, notes and templates never reach us.</p>
+          </details>
+          <details>
+            <summary>Does Shortlist automate LinkedIn?</summary>
+            <p>No. It reads the profile you’re looking at, and only when you click Save. It never sends messages, visits profiles or saves people in bulk. You copy a message and paste it into LinkedIn yourself.</p>
+          </details>
+          <details>
+            <summary>Can I use it on more than one computer?</summary>
+            <p>Your contacts are stored in one Chrome profile and don’t sync between computers. On Pro you can export a CSV at any time, and unlock Pro on another computer with Restore purchase in Settings.</p>
+          </details>
+          <details>
+            <summary>What happens if I uninstall it?</summary>
+            <p>Chrome deletes everything Shortlist stored. If you’re on Pro, export a CSV first to keep a copy.</p>
+          </details>
+          <details>
+            <summary>Which browsers does it work in?</summary>
+            <p>Google Chrome on desktop, version 116 or later. Shortlist uses Chrome’s side panel, which isn’t available on mobile.</p>
+          </details>
+          <details>
+            <summary>Is Shortlist made by LinkedIn?</summary>
+            <p>No. Shortlist is an independent tool and isn’t affiliated with or endorsed by LinkedIn.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a class="brand" href="./" aria-label="Shortlist home">
+          <img src="assets/icon-128.png" alt="" width="32" height="32">Shortlist
+        </a>
+        <ul class="footer-links">
+          <li><a href="privacy">Privacy policy</a></li>
+          <li><a href="https://www.youtube.com/watch?v=hkJwDPavl0E">Demo video</a></li>
+          <li><a href="privacy#contact">Contact</a></li>
+        </ul>
+      </div>
+      <p class="disclaimer">© 2026 Shortlist. Shortlist is an independent product and isn’t affiliated with, endorsed by or sponsored by LinkedIn Corporation. LinkedIn is a registered trademark of LinkedIn Corporation.</p>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shortlist</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">S</span>
+      <span class="brand-name">Shortlist</span>
+      <span class="plan" id="planBadge">Free</span>
+    </div>
+    <label class="search">
+      <span class="sr">Search contacts</span>
+      <input id="search" type="search" placeholder="Search name, company, tag…" autocomplete="off" />
+    </label>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-tab="pipeline" class="active">Pipeline</button>
+      <button role="tab" data-tab="followups">Follow-ups <span class="count" id="dueCount"></span></button>
+      <button role="tab" data-tab="templates">Templates</button>
+      <button role="tab" data-tab="settings">Settings</button>
+    </nav>
+  </header>
+
+  <div id="pageBanner" class="banner" hidden></div>
+
+  <main id="view"></main>
+
+  <section id="detail" class="detail" hidden></section>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="lib/store.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
