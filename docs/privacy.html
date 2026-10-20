@@ -32,7 +32,6 @@
       </a>
       <nav class="site-nav" aria-label="Main">
         <a class="nav-wide" href="./#tour">How it works</a>
-        <a class="nav-wide" href="./#pricing">Pricing</a>
         <a href="./#faq">FAQ</a>
         <a href="privacy" aria-current="page">Privacy</a>
       </nav>
@@ -43,7 +42,7 @@
     <div class="wrap policy-layout">
       <header class="prose policy-head">
         <h1>Privacy policy</h1>
-        <p class="updated">Last updated 20 October 2026</p>
+        <p class="updated">Last updated 21 October 2026</p>
         <p class="intro">Shortlist is a Chrome extension that helps recruiters and freelancers keep track of people they find on LinkedIn. This policy explains what information the extension handles, where it’s kept and what control you have. It also covers this website.</p>
       </header>
 
@@ -54,7 +53,6 @@
           <li><a href="#never-collected">What Shortlist never collects</a></li>
           <li><a href="#where-kept">Where your data is kept</a></li>
           <li><a href="#how-used">How information is used</a></li>
-          <li><a href="#payments">Payments and Pro</a></li>
           <li><a href="#permissions">Browser permissions</a></li>
           <li><a href="#sharing">Sharing and selling</a></li>
           <li><a href="#deleting">Keeping and deleting data</a></li>
@@ -75,7 +73,7 @@
             <li>Shortlist reads a LinkedIn profile only when you click Save, and only the profile you’re viewing.</li>
             <li>There are no analytics, ads or trackers in the extension or on this website.</li>
             <li>We never sell or share your data.</li>
-            <li>If you buy Pro, ExtensionPay and Stripe handle the payment. We never see your card details.</li>
+            <li>Shortlist is free. There are no accounts, payments or licence checks.</li>
             <li>Uninstalling Shortlist deletes everything it stored.</li>
           </ul>
         </section>
@@ -112,32 +110,23 @@
 
         <h2 id="never-collected">What Shortlist never collects</h2>
         <ul>
+          <li>Your name, email address or any account details. Shortlist has no accounts.</li>
           <li>Your LinkedIn password, login session or cookies</li>
           <li>Your LinkedIn messages, inbox, connections or feed</li>
           <li>Profiles you look at but don’t save</li>
-          <li>Your browsing history or activity on other websites. Shortlist only runs on linkedin.com and, for payments, extensionpay.com.</li>
+          <li>Your browsing history or activity on other websites. Shortlist only runs on linkedin.com.</li>
           <li>Analytics, crash reports or advertising identifiers</li>
         </ul>
         <p>Shortlist doesn’t click, scroll, send messages or visit profiles on your behalf.</p>
 
         <h2 id="where-kept">Where your data is kept</h2>
         <p>Your contacts, notes, templates and settings are stored with Chrome’s storage API (<code>chrome.storage.local</code>) inside your Chrome profile on your computer. They don’t sync to other computers, and they’re never uploaded to us. Shortlist doesn’t have a server to send them to.</p>
-        <p>The only exception is your Pro licence, described in <a href="#payments">Payments and Pro</a>.</p>
+        <p>Shortlist doesn’t make any network requests of its own, so nothing it stores is ever sent anywhere.</p>
 
         <h2 id="how-used">How information is used</h2>
-        <p>Information is used only to provide Shortlist’s features: showing your pipeline, filling in message templates, reminding you about follow-ups, showing the number of due follow-ups on the toolbar icon and, on Pro, exporting a CSV file. Reminder notifications are created on your computer and show the names of the contacts that are due.</p>
+        <p>Information is used only to provide Shortlist’s features: showing your pipeline, filling in message templates, reminding you about follow-ups, showing the number of due follow-ups on the toolbar icon and exporting a CSV file when you ask for one. Reminder notifications are created on your computer and show the names of the contacts that are due.</p>
         <p>We don’t use your information for advertising, profiling, credit or lending decisions, or to train AI models.</p>
         <p>Shortlist’s use of information complies with the <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Chrome Web Store User Data Policy</a>, including the Limited Use requirements.</p>
-
-        <h2 id="payments">Payments and Pro</h2>
-        <p>Shortlist sells Pro subscriptions through <a href="https://extensionpay.com">ExtensionPay</a>, which uses <a href="https://stripe.com/privacy">Stripe</a> to process payments.</p>
-        <ul>
-          <li>Nothing is sent to ExtensionPay until you click Upgrade to Pro or Restore purchase. When you do, ExtensionPay creates a random licence key for your copy of Shortlist and opens its checkout or sign-in page.</li>
-          <li>On that page you give ExtensionPay and Stripe your email address and payment details. They handle them under their own privacy policies. We never see your full card details.</li>
-          <li>After that, Shortlist checks the licence key with extensionpay.com when Chrome starts and about once an hour, to see whether Pro is active. These checks send only the licence key, never your contacts, notes or templates.</li>
-          <li>The licence key and your Pro status, which can include the email address you paid with, are saved in Chrome’s synced storage. If you use Chrome sync, that lets Pro follow you to your other computers.</li>
-          <li>As the seller, we can see paying customers’ email addresses and subscription status in our ExtensionPay account. We use them only to provide support and manage subscriptions.</li>
-        </ul>
 
         <h2 id="permissions">Browser permissions</h2>
         <p>Chrome asks you to approve these when you install Shortlist. Each one is used only for the purpose shown.</p>
@@ -152,7 +141,6 @@
               <tr><th scope="row"><code>notifications</code></th><td>Shows your daily follow-up reminder. You can turn it off in Settings.</td></tr>
               <tr><th scope="row"><code>sidePanel</code></th><td>Shows Shortlist in Chrome’s side panel</td></tr>
               <tr><th scope="row">Access to linkedin.com</th><td>Adds the Save to Shortlist button to profiles and reads the profile you choose to save</td></tr>
-              <tr><th scope="row">Access to extensionpay.com</th><td>Confirms your purchase when you upgrade to Pro</td></tr>
             </tbody>
           </table>
         </div>
@@ -161,17 +149,15 @@
         <p>We don’t sell, rent or share your information with anyone. Information leaves your browser only when you choose to send it:</p>
         <ul>
           <li>when you copy a message and paste it into LinkedIn or anywhere else</li>
-          <li>when you export a CSV file (Pro)</li>
-          <li>when you buy or restore Pro through ExtensionPay, as described above</li>
+          <li>when you export a CSV file</li>
         </ul>
-        <p>We would disclose the limited information we hold, such as a paying customer’s email address, only if the law required us to.</p>
+        <p>Because we never receive any of your information, there is nothing for us to share or disclose.</p>
 
         <h2 id="deleting">Keeping and deleting your data</h2>
         <p>Shortlist keeps your information until you delete it.</p>
         <ul>
           <li><strong>One contact:</strong> open it in the side panel and click Delete contact. Notes and templates have their own Delete buttons.</li>
-          <li><strong>Everything:</strong> remove Shortlist from Chrome (open <code>chrome://extensions</code> and click Remove). Chrome deletes all data the extension stored, including the licence key.</li>
-          <li><strong>Payment records:</strong> ExtensionPay and Stripe keep these under their own policies and legal obligations. To cancel Pro or close your ExtensionPay account, <a href="#contact">contact us</a>.</li>
+          <li><strong>Everything:</strong> remove Shortlist from Chrome (open <code>chrome://extensions</code> and click Remove). Chrome deletes all data the extension stored.</li>
         </ul>
 
         <h2 id="people-you-save">Information about people you save</h2>

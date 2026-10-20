@@ -10,7 +10,6 @@
     contacts: [],
     templates: [],
     settings: {},
-    pro: false,
     openId: null,
     editingTpl: null
   };
@@ -58,10 +57,10 @@
 
   // ---- data -----------------------------------------------------------------
   async function load() {
-    const [contacts, templates, settings, pro] = await Promise.all([
-      S.listContacts(), S.getTemplates(), S.getSettings(), S.isPro()
+    const [contacts, templates, settings] = await Promise.all([
+      S.listContacts(), S.getTemplates(), S.getSettings()
     ]);
-    Object.assign(state, { contacts, templates, settings, pro });
+    Object.assign(state, { contacts, templates, settings });
   }
 
   function matches(c) {
@@ -75,8 +74,6 @@
 
   // ---- render root ----------------------------------------------------------
   function render() {
-    $('planBadge').textContent = state.pro ? 'Pro' : 'Free';
-    $('planBadge').classList.toggle('pro', state.pro);
     const due = state.contacts.filter((c) => S.isDue(c)).length;
     $('dueCount').textContent = due ? String(due) : '';
     document.querySelectorAll('.tabs button').forEach((b) => b.classList.toggle('active', b.dataset.tab === state.tab));
@@ -162,7 +159,6 @@
 
   // ---- Templates --------------------------------------------------------------
   function renderTemplates() {
-    const atLimit = !state.pro && state.templates.length >= S.FREE_TEMPLATE_LIMIT;
     const wrap = h('div', null,
       h('p', { class: 'vars' }, 'Use ', ['{firstName}', '{name}', '{company}', '{headline}', '{myName}'].map((v) => [h('code', null, v), ' ']),
         'and they fill in automatically for each contact.')
@@ -183,9 +179,7 @@
 
     if (state.editingTpl && !state.editingTpl.id) wrap.append(tplEditor(state.editingTpl));
     else wrap.append(
-      atLimit
-        ? upsell('Free plan includes ' + S.FREE_TEMPLATE_LIMIT + ' templates.')
-        : h('button', { class: 'btn primary', onclick: () => { state.editingTpl = { name: '', body: '' }; render(); } }, '+ New template')
+      h('button', { class: 'btn primary', onclick: () => { state.editingTpl = { name: '', body: '' }; render(); } }, '+ New template')
     );
     return wrap;
   }
@@ -199,8 +193,7 @@
       h('div', { class: 'row' },
         h('button', { class: 'btn primary', onclick: async () => {
           if (!name.value.trim() || !body.value.trim()) return toast('Add a name and a message');
-          const res = await S.saveTemplate({ id: t.id, name: name.value.trim(), body: body.value });
-          if (!res.ok) return toast('Template limit reached — upgrade to add more');
+          await S.saveTemplate({ id: t.id, name: name.value.trim(), body: body.value });
           state.editingTpl = null; await load(); render(); toast('Template saved');
         } }, 'Save'),
         h('button', { class: 'btn ghost', onclick: () => { state.editingTpl = null; render(); } }, 'Cancel'))
@@ -208,20 +201,8 @@
   }
 
   // ---- Settings ---------------------------------------------------------------
-  function upsell(lead) {
-    return h('div', { class: 'upsell' },
-      h('h3', null, 'Go unlimited with Pro'),
-      h('div', null, lead),
-      h('ul', null,
-        h('li', null, 'Unlimited saved contacts'),
-        h('li', null, 'Unlimited message templates'),
-        h('li', null, 'CSV export for your ATS or spreadsheet')),
-      h('button', { class: 'btn primary', onclick: () => chrome.runtime.sendMessage({ type: 'OPEN_PAYMENT' }) }, 'Upgrade to Pro'));
-  }
-
   function renderSettings() {
     const s = state.settings;
-    const used = state.contacts.length;
     const myName = h('input', { type: 'text', value: s.myName, placeholder: 'Used for {myName} in templates' });
     const days = h('select', null, [1, 2, 3, 5, 7, 14].map((d) => h('option', { value: d, selected: s.defaultFollowUpDays === d }, d + (d === 1 ? ' day' : ' days'))));
     const notify = h('input', { type: 'checkbox', checked: s.notify });
@@ -234,21 +215,6 @@
 
     return h('div', null,
       h('div', { class: 'panel' },
-        h('h4', null, 'Plan'),
-        state.pro
-          ? h('div', null, h('b', null, 'Pro'), ' — unlimited everything. Thanks for supporting Shortlist.')
-          : h('div', null,
-              h('div', { class: 'row', style: 'justify-content:space-between' }, h('span', null, 'Contacts used'), h('b', null, used + ' / ' + S.FREE_CONTACT_LIMIT)),
-              h('div', { class: 'meter' }, h('i', { style: 'width:' + Math.min(100, (used / S.FREE_CONTACT_LIMIT) * 100) + '%' })),
-              upsell('You’re on the free plan.'),
-              h('div', { class: 'row', style: 'margin-top:8px' },
-                h('button', { class: 'btn ghost sm', onclick: () => chrome.runtime.sendMessage({ type: 'OPEN_LOGIN' }) }, 'Already paid? Restore purchase'),
-                h('button', { class: 'btn ghost sm', onclick: async () => {
-                  const r = await chrome.runtime.sendMessage({ type: 'REFRESH_PRO' });
-                  await load(); render(); toast(r && r.pro ? 'Pro is active' : 'Still on the free plan');
-                } }, 'Refresh status')))
-      ),
-      h('div', { class: 'panel' },
         h('h4', null, 'Preferences'),
         h('div', { class: 'field' }, h('label', null, 'Your name'), myName),
         h('div', { class: 'field' }, h('label', null, 'Follow-up after first contact'), days),
@@ -258,13 +224,12 @@
         h('h4', null, 'Data'),
         h('p', { class: 'vars', style: 'margin-top:0' }, 'Everything is stored locally in your browser. Nothing is sent to a server.'),
         h('div', { class: 'row' },
-          h('button', { class: 'btn', onclick: exportCSV }, 'Export CSV' + (state.pro ? '' : ' (Pro)')))
+          h('button', { class: 'btn', onclick: exportCSV }, 'Export CSV'))
       )
     );
   }
 
   function exportCSV() {
-    if (!state.pro) return chrome.runtime.sendMessage({ type: 'OPEN_PAYMENT' });
     const blob = new Blob([S.toCSV(state.contacts)], { type: 'text/csv' });
     const a = h('a', { href: URL.createObjectURL(blob), download: 'shortlist-' + S.todayISO() + '.csv' });
     document.body.append(a); a.click(); a.remove();
@@ -411,7 +376,6 @@
       h('button', { class: 'btn sm primary', onclick: async () => {
         const res = await chrome.runtime.sendMessage({ type: 'SAVE_PROFILE', profile: profile || { url } });
         if (res && res.ok) { await load(); render(); refreshBanner(); openDetail(res.contact.id); toast('Saved'); }
-        else if (res && res.reason === 'limit') { toast('Free limit reached'); state.tab = 'settings'; render(); }
       } }, 'Save'));
     banner.hidden = false;
   }
@@ -422,7 +386,7 @@
   $('search').addEventListener('input', (e) => { state.query = e.target.value; render(); });
 
   chrome.storage.onChanged.addListener(async (changes) => {
-    if (changes.contacts || changes.templates || changes.pro || changes.settings) {
+    if (changes.contacts || changes.templates || changes.settings) {
       // Don't re-render while the user is typing in a field.
       const active = document.activeElement;
       if (active && /INPUT|TEXTAREA/.test(active.tagName) && active.id !== 'search') return;

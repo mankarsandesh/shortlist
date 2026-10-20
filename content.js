@@ -59,7 +59,6 @@
           box-shadow: 0 6px 20px rgba(0,0,0,.18); transition: transform .12s ease, background .12s ease; }
         button:hover { transform: translateY(-1px); background: #166534; }
         button.saved { background: #fff; color: #14532D; box-shadow: 0 0 0 1px #BBF7D0, 0 6px 20px rgba(0,0,0,.12); }
-        button.limit { background: #9A3412; }
         .dot { width: 18px; height: 18px; border-radius: 50%; background: rgba(255,255,255,.18);
           display: grid; place-items: center; font-size: 12px; }
         button.saved .dot { background: #DCFCE7; }
@@ -80,17 +79,12 @@
   function setState(state, detail) {
     if (!btn) return;
     btn.classList.toggle('saved', state === 'saved');
-    btn.classList.toggle('limit', state === 'limit');
     const label = btn.querySelector('.label');
     const dot = btn.querySelector('.dot');
     if (state === 'saved') {
       dot.textContent = '✓';
       label.textContent = 'In Shortlist';
       sub.textContent = detail || 'Click to open';
-    } else if (state === 'limit') {
-      dot.textContent = '!';
-      label.textContent = 'Free limit reached';
-      sub.textContent = 'Upgrade for unlimited';
     } else {
       dot.textContent = '+';
       label.textContent = 'Save to Shortlist';
@@ -121,14 +115,11 @@
   async function onClick() {
     const state = btn.dataset.state;
     if (state === 'saved') return send({ type: 'OPEN_PANEL' });
-    if (state === 'limit') return send({ type: 'OPEN_PAYMENT' });
 
     const res = await send({ type: 'SAVE_PROFILE', profile: extractProfile() });
     if (res.ok) {
       setState('saved', 'Saved · follow-up in 2 days');
       send({ type: 'OPEN_PANEL' });
-    } else if (res.reason === 'limit') {
-      setState('limit');
     }
   }
 

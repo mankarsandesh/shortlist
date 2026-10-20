@@ -47,9 +47,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .logo { width: 22px; height: 22px; border-radius: 6px; background: var(--accent); color: var(--bg);
   display: grid; place-items: center; font-weight: 700; font-size: 13px; }
 .brand-name { font-weight: 650; font-size: 15px; letter-spacing: -.01em; }
-.plan { margin-left: auto; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px;
-  background: var(--line); color: var(--muted); }
-.plan.pro { background: var(--accent-soft); color: var(--accent); }
 .search input { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px;
   background: var(--surface); outline: none; }
 .search input:focus { border-color: var(--accent); }
@@ -144,12 +141,6 @@ textarea { resize: vertical; min-height: 70px; }
 .tpl .row { justify-content: space-between; }
 .vars { font-size: 12px; color: var(--muted); margin: 6px 0 12px; }
 .vars code { background: var(--line); padding: 0 4px; border-radius: 4px; font-size: 11px; }
-.meter { height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; margin: 6px 0 4px; }
-.meter i { display: block; height: 100%; background: var(--accent); }
-.upsell { background: var(--ink); color: var(--bg); border-radius: var(--radius); padding: 14px; margin-top: 12px; }
-.upsell h3 { margin: 0 0 4px; font-size: 15px; }
-.upsell ul { margin: 8px 0 12px; padding-left: 18px; }
-.upsell .btn.primary { background: var(--bg); color: var(--ink); border-color: var(--bg); }
 .check { display: flex; gap: 8px; align-items: center; }
 
 .toast { position: fixed; left: 50%; bottom: 18px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none;

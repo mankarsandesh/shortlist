@@ -277,11 +277,6 @@ code {
   font: 700 1.25rem/1.25 "Inter Tight", sans-serif; letter-spacing: -.02em;
 }
 .feature p { margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.55; }
-.pro-tag {
-  padding: 3px 8px; border-radius: 999px;
-  background: var(--soft); color: var(--soft-ink);
-  font: 650 .75rem/1 "Inter", sans-serif; letter-spacing: 0;
-}
 
 .specimen {
   display: flex; flex-wrap: wrap; align-items: center; align-content: center; gap: 8px;
@@ -373,29 +368,6 @@ code {
   background: #DCFCE7; color: #14532D;
 }
 .tick svg { width: 13px; height: 13px; }
-
-/* ---- Plans table --------------------------------------------------------- */
-.table-frame { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-l); background: var(--surface); }
-.plans { width: 100%; min-width: 480px; border-collapse: collapse; font-size: 1rem; }
-.plans th, .plans td { padding: 16px 20px; border-top: 1px solid var(--line); text-align: left; vertical-align: middle; }
-.plans thead th { border-top: 0; padding-block: 20px; font: 750 1.125rem/1.2 "Inter Tight", sans-serif; letter-spacing: -.015em; }
-.plans thead th small { display: block; margin-top: 4px; color: var(--muted); font: 400 .875rem/1.3 "Inter", sans-serif; letter-spacing: 0; }
-.plans tbody th { font-weight: 450; }
-.plans .plan { width: 22%; text-align: center; }
-.plans .plan-pro { background: color-mix(in srgb, var(--soft) 55%, transparent); }
-.plans thead .plan-pro { background: var(--soft); color: var(--soft-ink); }
-.plans thead .plan-pro small { color: var(--soft-ink); opacity: .8; }
-.yes { color: var(--brand-text); }
-.yes svg { width: 18px; height: 18px; display: inline-block; vertical-align: middle; }
-.no { color: var(--muted); }
-.plans-note { margin: 18px 0 0; max-width: 70ch; color: var(--muted); font-size: .9375rem; }
-@media (max-width: 600px) {
-  .plans { min-width: 0; font-size: .9375rem; }
-  .plans th, .plans td { padding: 12px 10px; }
-  .plans tbody th { padding-left: 14px; }
-  .plans .plan { width: 25%; }
-  .plans thead th small { display: none; }
-}
 
 /* ---- Getting started ----------------------------------------------------- */
 .steps {

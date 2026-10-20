@@ -1,27 +1,5 @@
-/* Service worker: payments, follow-up reminders, badge, and messages from the LinkedIn page. */
-importScripts('lib/ExtPay.js', 'lib/store.js');
-
-const extpay = ExtPay(Store.EXTPAY_ID);
-extpay.startBackground();
-
-async function refreshPaidStatus() {
-  try {
-    const user = await extpay.getUser();
-    await chrome.storage.local.set({ pro: !!user.paid });
-  } catch (e) {
-    // Offline or ExtensionPay not configured yet: keep the last known value.
-  }
-}
-
-extpay.onPaid.addListener(async () => {
-  await chrome.storage.local.set({ pro: true });
-  chrome.notifications.create('pro', {
-    type: 'basic',
-    iconUrl: 'icons/icon128.png',
-    title: 'Shortlist Pro unlocked',
-    message: 'Unlimited contacts, templates and CSV export are now on. Thank you!'
-  });
-});
+/* Service worker: follow-up reminders, badge, and messages from the LinkedIn page. */
+importScripts('lib/store.js');
 
 chrome.runtime.onInstalled.addListener(async (details) => {
   chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch(() => {});
@@ -30,13 +8,11 @@ chrome.runtime.onInstalled.addListener(async (details) => {
     const { templates } = await chrome.storage.local.get('templates');
     if (!templates) await chrome.storage.local.set({ templates: Store.DEFAULT_TEMPLATES });
   }
-  refreshPaidStatus();
   updateBadge();
 });
 
 chrome.runtime.onStartup.addListener(() => {
   chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch(() => {});
-  refreshPaidStatus();
   updateBadge();
 });
 
@@ -70,10 +46,7 @@ async function checkFollowUps() {
 }
 
 chrome.alarms.onAlarm.addListener((a) => {
-  if (a.name === 'followups') {
-    checkFollowUps();
-    refreshPaidStatus();
-  }
+  if (a.name === 'followups') checkFollowUps();
 });
 
 chrome.storage.onChanged.addListener((changes) => {
@@ -100,21 +73,6 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
         } catch (e) {
           reply({ ok: false });
         }
-        break;
-      }
-      case 'OPEN_PAYMENT': {
-        extpay.openPaymentPage();
-        reply({ ok: true });
-        break;
-      }
-      case 'OPEN_LOGIN': {
-        extpay.openLoginPage();
-        reply({ ok: true });
-        break;
-      }
-      case 'REFRESH_PRO': {
-        await refreshPaidStatus();
-        reply({ pro: await Store.isPro() });
         break;
       }
       default:

@@ -1,6 +1,6 @@
 # Shortlist Privacy Policy
 
-_Last updated: 20 October 2026_
+_Last updated: 21 October 2026_
 
 The published version of this policy is at https://mankarsandesh.github.io/shortlist/privacy (source: `docs/privacy.html`). Keep the two in sync.
 
@@ -12,7 +12,7 @@ Shortlist is a Chrome extension that helps recruiters and freelancers keep track
 - Shortlist reads a LinkedIn profile only when you click Save, and only the profile you're viewing.
 - There are no analytics, ads or trackers in the extension or on the website.
 - We never sell or share your data.
-- If you buy Pro, ExtensionPay and Stripe handle the payment. We never see your card details.
+- Shortlist is free. There are no accounts, payments or licence checks.
 - Uninstalling Shortlist deletes everything it stored.
 
 ## Information Shortlist stores
@@ -32,10 +32,11 @@ While the side panel is open, Shortlist checks the address of the tab you're vie
 
 ## What Shortlist never collects
 
+- Your name, email address or any account details. Shortlist has no accounts.
 - Your LinkedIn password, login session or cookies
 - Your LinkedIn messages, inbox, connections or feed
 - Profiles you look at but don't save
-- Your browsing history or activity on other websites. Shortlist only runs on linkedin.com and, for payments, extensionpay.com.
+- Your browsing history or activity on other websites. Shortlist only runs on linkedin.com.
 - Analytics, crash reports or advertising identifiers
 
 Shortlist doesn't click, scroll, send messages or visit profiles on your behalf.
@@ -44,25 +45,15 @@ Shortlist doesn't click, scroll, send messages or visit profiles on your behalf.
 
 Your contacts, notes, templates and settings are stored with Chrome's storage API (`chrome.storage.local`) inside your Chrome profile on your computer. They don't sync to other computers, and they're never uploaded to us. Shortlist doesn't have a server to send them to.
 
-The only exception is your Pro licence, described under Payments and Pro.
+Shortlist doesn't make any network requests of its own, so nothing it stores is ever sent anywhere.
 
 ## How information is used
 
-Information is used only to provide Shortlist's features: showing your pipeline, filling in message templates, reminding you about follow-ups, showing the number of due follow-ups on the toolbar icon and, on Pro, exporting a CSV file. Reminder notifications are created on your computer and show the names of the contacts that are due.
+Information is used only to provide Shortlist's features: showing your pipeline, filling in message templates, reminding you about follow-ups, showing the number of due follow-ups on the toolbar icon and exporting a CSV file when you ask for one. Reminder notifications are created on your computer and show the names of the contacts that are due.
 
 We don't use your information for advertising, profiling, credit or lending decisions, or to train AI models.
 
 Shortlist's use of information complies with the [Chrome Web Store User Data Policy](https://developer.chrome.com/docs/webstore/program-policies/limited-use), including the Limited Use requirements.
-
-## Payments and Pro
-
-Shortlist sells Pro subscriptions through [ExtensionPay](https://extensionpay.com), which uses [Stripe](https://stripe.com/privacy) to process payments.
-
-- Nothing is sent to ExtensionPay until you click Upgrade to Pro or Restore purchase. When you do, ExtensionPay creates a random licence key for your copy of Shortlist and opens its checkout or sign-in page.
-- On that page you give ExtensionPay and Stripe your email address and payment details. They handle them under their own privacy policies. We never see your full card details.
-- After that, Shortlist checks the licence key with extensionpay.com when Chrome starts and about once an hour, to see whether Pro is active. These checks send only the licence key, never your contacts, notes or templates.
-- The licence key and your Pro status, which can include the email address you paid with, are saved in Chrome's synced storage. If you use Chrome sync, that lets Pro follow you to your other computers.
-- As the seller, we can see paying customers' email addresses and subscription status in our ExtensionPay account. We use them only to provide support and manage subscriptions.
 
 ## Browser permissions
 
@@ -73,25 +64,22 @@ Shortlist sells Pro subscriptions through [ExtensionPay](https://extensionpay.co
 | `notifications` | Shows your daily follow-up reminder. You can turn it off in Settings. |
 | `sidePanel` | Shows Shortlist in Chrome's side panel |
 | Access to linkedin.com | Adds the Save to Shortlist button to profiles and reads the profile you choose to save |
-| Access to extensionpay.com | Confirms your purchase when you upgrade to Pro |
 
 ## Sharing and selling
 
 We don't sell, rent or share your information with anyone. Information leaves your browser only when you choose to send it:
 
 - when you copy a message and paste it into LinkedIn or anywhere else
-- when you export a CSV file (Pro)
-- when you buy or restore Pro through ExtensionPay, as described above
+- when you export a CSV file
 
-We would disclose the limited information we hold, such as a paying customer's email address, only if the law required us to.
+Because we never receive any of your information, there is nothing for us to share or disclose.
 
 ## Keeping and deleting your data
 
 Shortlist keeps your information until you delete it.
 
 - **One contact:** open it in the side panel and click Delete contact. Notes and templates have their own Delete buttons.
-- **Everything:** remove Shortlist from Chrome (open `chrome://extensions` and click Remove). Chrome deletes all data the extension stored, including the licence key.
-- **Payment records:** ExtensionPay and Stripe keep these under their own policies and legal obligations. To cancel Pro or close your ExtensionPay account, contact us.
+- **Everything:** remove Shortlist from Chrome (open `chrome://extensions` and click Remove). Chrome deletes all data the extension stored.
 
 ## Information about people you save
 
